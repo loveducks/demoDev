@@ -1,4 +1,4 @@
-let blob = document.querySelector('.blog');
+let blob = document.querySelector('.blob');
 
 window.addEventListener('deviceorientation', (e) => {
     let tiltLR = e.gamma;
