@@ -4,5 +4,5 @@ window.addEventListener('deviceorientation', (e) => {
     let tiltLR = e.gamma;
     let tiltFB = e.beta;
 
-    blog.style.transform = `rotate(${tiltLR}deg) rotate3d(1, 0, 0, ${tiltFB * -1}deg)`; 
+    blog.style.transform = `rotate3d(1, 0, 0, ${tiltFB * -1}deg)`; 
 });
