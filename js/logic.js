@@ -1,15 +1,13 @@
 let blob = document.querySelector('.blob');
+let log = document.querySelector('#log');
 
 window.addEventListener('deviceorientation', (e) => {
-    let tiltLR = e.gamma;
-    let tiltFB = e.beta;
-
     blob.style.transform = 'rotateX(' +e.beta+ 'deg)' +
         'rotateY(' +e.gamma+ 'deg)' +
         'rotateZ(' +e.alpha+ 'deg)';
 });
 
-const getPrefix = ()=> {
+let getPrefix = ()=> {
     let prefix = null;
     if(document.hidden !== undefined)
         prefix = "";
@@ -25,13 +23,26 @@ const getPrefix = ()=> {
     return prefix;
 }
 
-const countView = ()=>{
+let countView = ()=>{
     if( document.hidden === false || document[prefix + 'Hidden'] === false )
         views++;
-    console.log(views);
+    log.innerText = "You visited the page " + views + " times";
+    //console.log(views);
 }
+
+/*
+let testPageVisibilityApi = () => {
+    if(prefix === null)
+        log.innerText = "Your browser does not support Page Visibility API";
+    else{
+        document.addEventListener(prefix + "visibilitychange", countView);
+        countView();
+    }
+}
+*/
+
 
 let views = 0;
 let prefix = getPrefix();
-window.onload = countView();
-
+window.onload = 
+document.addEventListener(prefix + "visibilitychange", countView, false);

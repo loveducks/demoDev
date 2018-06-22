@@ -6,3 +6,8 @@ body{
 .blob{
     margin-top: 40vh;
 }
+#log{
+    color: white;
+    font-family: sans;
+    font-size: 16px;
+}
